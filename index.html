@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>International Tip Calculator</title>
+    <!-- Use a Google Font for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="A simple and elegant international tip calculator.">
+</head>
+<body>
+    <main class="calculator-container">
+        <h1>Tip Calculator</h1>
+        <form id="tip-form" class="tip-form">
+            <div class="form-group">
+                <label for="bill-total">Bill Total</label>
+                <div class="input-wrapper">
+                    <span class="currency-symbol">$</span>
+                    <input type="text" id="bill-total" placeholder="0.00">
+                </div>
+                <!-- Validation Error Message container -->
+                <div id="error-message" class="error-message hidden">Please enter a valid positive number.</div>
+            </div>
+
+            <div class="form-group slider-group">
+                <label for="tip-slider">Tip Slider</label>
+                <input type="range" id="tip-slider" min="0" max="100" value="15">
+            </div>
+
+            <!-- Disabled Outputs Section -->
+            <div class="outputs-section">
+                <div class="form-group">
+                    <label for="tip-percentage">Tip Percentage</label>
+                    <input type="text" id="tip-percentage" disabled>
+                </div>
+
+                <div class="form-group">
+                    <label for="tip-amount">Tip Amount</label>
+                    <input type="text" id="tip-amount" disabled>
+                </div>
+
+                <div class="form-group">
+                    <label for="total-with-tax">Total Bill with Tax (11%)</label>
+                    <input type="text" id="total-with-tax" disabled>
+                </div>
+
+                <div class="form-group">
+                    <label for="total-with-tip">Total Bill with Tip</label>
+                    <input type="text" id="total-with-tip" disabled>
+                </div>
+
+                <div class="form-group">
+                    <label for="total-with-tip-tax">Bill Total with Tip & Tax</label>
+                    <input type="text" id="total-with-tip-tax" disabled>
+                </div>
+            </div>
+        </form>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
