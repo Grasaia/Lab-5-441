@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const billTotalInput = document.getElementById('bill-total');
     const tipSlider = document.getElementById('tip-slider');
     const sliderValDisplay = document.getElementById('slider-val');
+    const taxExemptCheckbox = document.getElementById('tax-exempt');
     
     // Output fields
     const tipPercentageOut = document.getElementById('tip-percentage');
@@ -23,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Get values
         const billValueStr = billTotalInput.value.trim();
         const tipPercentage = parseFloat(tipSlider.value);
+        const isTaxExempt = taxExemptCheckbox.checked;
 
         // Update slider value display
         sliderValDisplay.textContent = tipPercentage;
@@ -60,8 +62,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Tip amount = bill * tip %
         const tipAmount = billTotal * (tipPercentage / 100);
         
-        // Total Bill with Tax (11% if bill > 0 per Part C)
-        const taxAmount = billTotal * TAX_RATE;
+        // Total Bill with Tax (11% if bill > 0 per Part C, unless tax exempt)
+        const taxAmount = isTaxExempt ? 0 : billTotal * TAX_RATE;
         const totalWithTax = billTotal + taxAmount;
         
         // Total Bill with Tip = bill + tip
